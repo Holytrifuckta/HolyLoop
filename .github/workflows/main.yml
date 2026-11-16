@@ -18,8 +18,10 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
-      - run: gradle assembleDebug --no-daemon
+      -       - name: Build Android APK
+        run: gradle assembleDebug --no-daemon
+        working-directory: HolyLoop
       - uses: actions/upload-artifact@v4
         with:
           name: HolyLoop-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+                    path: HolyLoop/app/build/outputs/apk/debug/app-debug.apk
